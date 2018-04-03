@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  kekkonen:
+    image: kekkonen
+    build:
+      context: ./Kekkonen
+      dockerfile: Dockerfile
