@@ -36,7 +36,6 @@ namespace Kekkonen
             var provider = services.BuildServiceProvider();
             provider.GetRequiredService<LoggingService>();
             provider.GetRequiredService<CommandHandler>();
-            //provider.GetRequiredService<VitutusService>();
 
             await provider.GetRequiredService<LoginService>().StartAsync();
             await Task.Delay(-1);
@@ -58,7 +57,6 @@ namespace Kekkonen
                 .AddSingleton<CommandHandler>()
                 .AddSingleton<LoginService>()
                 .AddSingleton<LoggingService>()
-                //.AddSingleton<VitutusService>()
                 .AddSingleton(Configuration);
         }
     }

@@ -23,7 +23,7 @@ namespace Kekkonen.Services
 
         public async Task StartAsync()
         {
-            await _discordSocket.LoginAsync(TokenType.Bot, _configuration["token"]);
+            await _discordSocket.LoginAsync(TokenType.Bot, _configuration["discord_api"]);
             await _discordSocket.StartAsync();
 
             await _commandService.AddModulesAsync(Assembly.GetEntryAssembly());
