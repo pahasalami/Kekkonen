@@ -12,7 +12,7 @@ namespace Kekkonen.Modules
         [RequireUserPermission(GuildPermission.SendMessages)]
         public async Task Hello()
         {
-            await ReplyAsync($"hello :ok_hand:");
+            await ReplyAsync($"hello {Context.User.Mention} :wave:");
         }
     }
 }

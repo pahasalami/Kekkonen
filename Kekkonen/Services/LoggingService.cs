@@ -27,7 +27,7 @@ namespace Kekkonen.Services
 
         private string LogFile => Path.Combine(_folder, $"{DateTime.Now:yyyy-MM-dd}.log");
 
-        private Task LogAsync(LogMessage logMessage)
+        public Task LogAsync(LogMessage logMessage)
         {
             if (Directory.Exists(_folder) == false)
             {
@@ -40,7 +40,7 @@ namespace Kekkonen.Services
             }
 
             var text =
-                $"{DateTime.Now:HH:mm:ss} [{logMessage.Severity}] {logMessage.Source}: {logMessage.Exception?.ToString() ?? logMessage.Message}";
+                $"{DateTime.Now:HH:mm:ss} [{logMessage.Severity,-7}] {logMessage.Source,-12}: {logMessage.Exception?.ToString() ?? logMessage.Message}";
             File.AppendAllText(LogFile, text + "\r\n");
 
             return Console.Out.WriteLineAsync(text);

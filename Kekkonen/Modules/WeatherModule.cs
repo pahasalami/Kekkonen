@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Discord;
@@ -34,7 +35,11 @@ namespace Kekkonen.Modules
                 RequestFormat = DataFormat.Json,
                 UseDefaultCredentials = false
             };
-            request.AddParameter("appid", _configuration["weather_api"]);
+
+            var api = _configuration.GetSection("api").GetChildren().Where(n => n.Key == "weather")
+                .Select(x => x.Value).FirstOrDefault();
+
+            request.AddParameter("appid", api);
             request.AddParameter("q", input);
             request.AddParameter("units", "metric");
             request.AddHeader("User-Agent", "kekkonen+github.com/pahasalami/Kekkonen");
