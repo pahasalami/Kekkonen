@@ -97,7 +97,7 @@ namespace Kekkonen.Modules
                 $"Temperature: {Main.Temp}°C\n" +
                 $"Pressure: {Main.Pressure} hPa\n" +
                 $"Humidity: {Main.Humidity}%\n" +
-                $"Wind: {Wind.Speed} km/h\n" +
+                $"Wind: {Wind.Speed} m/s\n" +
                 $"Minimum: {Main.TempMin}°C, Maximum: {Main.TempMax}°C\n";
         }
     }
