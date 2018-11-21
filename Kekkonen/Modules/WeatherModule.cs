@@ -47,7 +47,8 @@ namespace Kekkonen.Modules
             var response = client.Execute<WeatherApiResponse>(request);
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                await message.ModifyAsync(x => { x.Content = $":lennu: ({response.StatusDescription})"; });
+                // 514927067754921997 = :lennu:
+                await message.ModifyAsync(x => { x.Content = $":514927067754921997: ({response.StatusDescription}) "; });
                 return;
             }
 
@@ -94,12 +95,12 @@ namespace Kekkonen.Modules
         public string GetHuman()
         {
             return
-                $"Temperature: {Main.Temp}°C\n" +
-                $"Pressure: {Main.Pressure} hPa\n" +
-                $"Humidity: {Main.Humidity}%\n" +
-                $"Wind: {Wind.Speed} m/s\n" +
-                $"Minimum: {Main.TempMin}°C, Maximum: {Main.TempMax}°C\n";
+                $":thermometer: {Main.Temp}°C\n" +
+                $":sweat_drops: : {Main.Humidity}%\n" +
+                $":dash: {Wind.Speed} m/s\n" +
+                $":cloud: {Clouds.All}%";
         }
+
     }
 
     public class Clouds

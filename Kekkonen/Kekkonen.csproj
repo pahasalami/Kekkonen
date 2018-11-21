@@ -15,8 +15,11 @@
 
   <ItemGroup>
     <Compile Remove="Hooks\**" />
+    <Compile Remove="Preconditions\**" />
     <EmbeddedResource Remove="Hooks\**" />
+    <EmbeddedResource Remove="Preconditions\**" />
     <None Remove="Hooks\**" />
+    <None Remove="Preconditions\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,10 +32,6 @@
     <None Update=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Preconditions\" />
   </ItemGroup>
 
 </Project>
