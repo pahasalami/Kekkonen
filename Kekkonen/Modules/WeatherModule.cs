@@ -47,8 +47,7 @@ namespace Kekkonen.Modules
             var response = client.Execute<WeatherApiResponse>(request);
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                // 514927067754921997 = :lennu:
-                await message.ModifyAsync(x => { x.Content = $":514927067754921997: ({response.StatusDescription}) "; });
+                await message.ModifyAsync(x => { x.Content = $"API Error: {response.StatusDescription}"; });
                 return;
             }
 
@@ -96,7 +95,7 @@ namespace Kekkonen.Modules
         {
             return
                 $":thermometer: {Main.Temp}°C\n" +
-                $":sweat_drops: : {Main.Humidity}%\n" +
+                $":sweat_drops: {Main.Humidity}%\n" +
                 $":dash: {Wind.Speed} m/s\n" +
                 $":cloud: {Clouds.All}%";
         }
