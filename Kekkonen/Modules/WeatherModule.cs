@@ -94,10 +94,10 @@ namespace Kekkonen.Modules
         public string GetHuman()
         {
             return
-                $":thermometer: {Main.Temp}°C\n" +
-                $":sweat_drops: {Main.Humidity}%\n" +
-                $":dash: {Wind.Speed} m/s\n" +
-                $":cloud: {Clouds.All}%";
+                $":thermometer: Lämpötila: {Main.Temp}°C\n" +
+                $":sweat_drops: Ilmankosteus: {Main.Humidity}%\n" +
+                $":dash: Tuuli: {Wind.Speed} m/s\n" +
+                $":cloud: Pilvisyys: {Clouds.All}%";
         }
 
     }
